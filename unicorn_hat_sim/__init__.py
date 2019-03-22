@@ -32,8 +32,7 @@ class UnicornHatSim(object):
         self.clear()
 
     def set_pixel(self, x, y, r, g, b):
-        i = (x * self.width) + y
-        self.pixels[i] = [int(r), int(g), int(b)]
+        self.pixels[self.index(x, y)] = [int(r), int(g), int(b)]
 
     def draw(self):
         for event in pygame.event.get():  # User did something
@@ -104,7 +103,7 @@ class UnicornHatSim(object):
         elif rot == 270:
             xx = y
             yy = self.width - 1 - x
-        return (xx * self.width) + yy
+        return (xx * self.height) + yy
 
 
 # SD hats works as expected
